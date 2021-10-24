@@ -1,0 +1,31 @@
+<div class="single-post w-100 row mb-5">
+  <div class="col-3 m-0 p-0 image cp" [routerLink]="'/back/posts/' + post._id">
+    <img class="w-100" [src]="apiUrl + '/post-image/' + post.image" alt="post-image">
+  </div>
+  <div class="col-4 m-0 p-2">
+    <p class="post-title m-0 p-0 fw-bold cp" [routerLink]="'/back/posts/' + post._id">
+      {{ (post.title.length>79)? (post.title | slice:0:80)+'..':(post.title) }}
+    </p>
+    <p class="m-0 p-0">{{ post.date_posted }} {{ post.time_posted }}</p>
+    <p class="m-0 p-0"><b>Writer:</b> {{ post.writer }}</p>
+  </div>
+
+  <div class="col-2 m-0 p-0 d-flex flex-column justify-content-center align-items-center">
+    <p class="m-0 p-0 text-center">{{ post.category }}</p>
+    <p class="m-0 p-0 text-center"><b>CATEGORY</b></p>
+  </div>
+
+  <div class="col-2 m-0 p-0 d-flex justify-content-center align-items-center">
+    <button class="btn btn-danger" 
+      (click)="makePrimary()" *ngIf="!primary">MAKE PRIMARY</button>
+    <button class="btn btn-danger" (click)="makePrimary()" *ngIf="primary">REMOVE PRIMARY</button>
+  </div>
+  <div class="col-1 m-0 p-0 buttons">
+    <button (click)="showDelete()">
+      <fa-icon [icon]="deleteIcon"></fa-icon>
+    </button>
+    <button [routerLink]="'/back/posts/' + post._id">
+      <fa-icon [icon]="editIcon"></fa-icon>
+    </button>
+  </div>
+</div>

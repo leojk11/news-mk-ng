@@ -1,0 +1,22 @@
+@import 'src/assets/scss/variables/colors';
+
+.category-post {
+    .image {
+        height: 200px;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .title {
+        transition: all 0.3s;
+    }
+
+    &:hover {
+        .title {
+            color: $color-red;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+@import "src/assets/scss/variables/colors";
+
+.single-category {
+  width: max-content;
+  padding: 12px 30px;
+
+  transition: all .3s;
+
+  &:hover {
+    background-color: $color-red;
+    color: white;
+  }
+}

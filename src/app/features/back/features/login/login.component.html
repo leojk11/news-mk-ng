@@ -1,0 +1,20 @@
+<div class="wrapper d-flex flex-column justify-content-center align-items-center">
+  <h1><span class="text-danger">newsMK</span> CMS LOGIN</h1>
+  <form class="login-form row justify-content-center mt-5" [formGroup]="form" 
+      (ngSubmit)="handleSubmit()">
+    <div class="form-group col-12">
+      <label class="fw-bold">Email</label>
+      <input type="text" class="form-control" 
+        formControlName="email" name="Email">
+    </div>
+    <div class="form-group mt-3 col-12">
+      <label class="fw-bold">Password</label>
+      <input type="password" class="form-control" 
+        formControlName="password" name="password">
+    </div>
+
+    <div class="button-wrapper col-5 mt-4">
+      <button class="btn btn-primary w-100">LOGIN</button>
+    </div>
+  </form>
+</div>

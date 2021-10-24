@@ -1,0 +1,20 @@
+<div class="w-100 big-post-wrapper d-flex justify-content-start align-items-center"
+    [routerLink]="'/post/' + bigPost._id" *ngIf="!!bigPost">
+
+  <div class="row inner">
+    <div class="title-wrapper cp col-12 col-md-4 col-lg-4 col-xl-4">
+      <h2 class="title fw-bold">
+        {{ (bigPost.title | slice:0:90)+'..' }}
+      </h2>
+      <h6 class="smaller-title text-secondary fw-normal">
+        {{ (bigPost.small_title | slice:0:150)+'..' }}
+      </h6>
+      <a class="category text-secondary post-category fw-bold"
+        (click)="goToCategory($event)">{{ bigPost.category }}</a>
+    </div>
+
+    <div class="image cp col-12 col-md-8 col-lg-8 col-xl-8">
+      <img [src]="apiUrl + '/post-image/' + bigPost.image" alt="big-post-img">
+    </div>
+  </div>
+</div>

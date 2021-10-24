@@ -1,0 +1,31 @@
+<div class="add-sub-category-wrapper p-3">
+  <app-page-label [label]="'Add Sub Category'"></app-page-label>
+
+  <form class="cms-form mt-4" [formGroup]="form" (ngSubmit)="handleSubmit()">
+    <div class="form-group mb-3">
+      <label class="fw-bold">Category</label>
+      <select 
+        class="form-select" 
+        formControlName="category" 
+        (change)="chooseCategory($event.target.value)"
+      >
+        <option [value]="category.category.name" 
+          *ngFor="let category of categories">{{ category.category.name }}</option>
+      </select>
+    </div>
+    <div class="form-group mb-3">
+      <label class="fw-bold">Sub Category</label>
+      <input type="text" class="form-control" 
+        formControlName="sub_cat" name="sub_category">
+      
+      <small *ngIf="isInvalid(form, 'sub_cat')">
+        <span *ngIf="form.controls.sub_cat.errors?.required" style="color: red">
+          Sub category name is required.
+        </span>
+      </small>
+    </div>
+
+    <button class="btn btn-success mt-5 add-new-btn"> 
+      <fa-icon [icon]="addIcon"></fa-icon> Add Sub Category</button>
+  </form>
+</div>

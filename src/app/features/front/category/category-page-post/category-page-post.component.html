@@ -1,0 +1,13 @@
+<div class="small-post-wrapper w-100 mb-3 cp" [routerLink]="'/post/' + post._id">
+  <div class="image w-100">
+    <img [src]="apiUrl + '/post-image/' + post.image" class="w-100" alt="small-post-img">
+  </div>
+
+  <p class="w-100 fw-bold m-0 p-0 mt-2 title">{{ (post.title.length>69)? (post.title | slice:0:70)+'..':(post.title) }}</p>
+  <p class="w-100 m-0 p-0 smaller-title mt-1">{{ (post.small_title.length>54)? (post.small_title | slice:0:55)+'..':(post.small_title) }}</p>
+
+  <div class="mt-1 d-flex justify-content-start align-items-center gap-1 text-secondary">
+    <p class="added m-0 p-0">{{ post.date_posted }} |</p>
+    <p class="added m-0 p-0 cp fw-bold">{{ post.category }}</p>
+  </div>
+</div>

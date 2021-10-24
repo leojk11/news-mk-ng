@@ -1,0 +1,19 @@
+<div class="w-100 bg-dark py-5">
+  <!-- TODO: ADD LOGO -->
+  <h1 class="text-white text-center cp" routerLink="/home">news.<span class="text-danger">MK</span></h1>
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="w-75 d-flex justify-content-between align-items-center">
+    <div class="d-flex justify-content-start align-items-center">
+      <a class="single-category" *ngFor="let category of categories"
+        [routerLink]="'/category/' + category._id">{{ category.name }}</a>
+    </div>
+
+    <div class="d-flex justify-content-start align-items-center">
+      <button type="button" class="menu-item"><fa-icon [icon]="searchIcon"></fa-icon></button>
+      <button type="button" class="menu-item"><fa-icon [icon]="userIcon"></fa-icon></button>
+      <button type="button" class="menu-item"><fa-icon [icon]="menuIcon"></fa-icon></button>
+    </div>
+  </div>
+</div>

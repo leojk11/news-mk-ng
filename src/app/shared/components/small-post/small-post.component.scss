@@ -1,0 +1,32 @@
+@import 'src/assets/scss/variables/colors';
+
+.small-post-wrapper {
+    .image {
+        height: 140px;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .title {
+        font-size: 15px;
+
+        transition: 0.3s;
+
+        &:hover {
+            color: $color-red;
+        }
+    }
+    .smaller-title {
+        font-size: 13px;
+    }
+    .added {
+        font-size: 12px;
+    }
+    .added.category {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

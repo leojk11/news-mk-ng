@@ -1,0 +1,17 @@
+<div class="category-card w100 mb-5" *ngIf="category.posts.length > 0">
+  <div class="category-title w-100 d-flex justify-content-between align-item-center p-3">
+    <h4 class="m-0 p-0">{{ categoryInfo.name }}</h4>
+    <fa-icon [icon]="arrowRightIcon"></fa-icon>
+  </div>
+
+  <!-- MAIN POST -->
+  <div class="w-100 mt-3" *ngIf="!!category.primaryPost">
+   <app-category-post [post]="category.primaryPost"></app-category-post>
+  </div>
+
+  <div class="spacer mb-3"></div>
+
+  <div class="w-100 mb-3" *ngFor="let post of category.posts">
+    <app-category-small-post [post]="post"></app-category-small-post>
+  </div>
+</div>

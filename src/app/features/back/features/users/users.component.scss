@@ -1,0 +1,10 @@
+@import 'src/assets/scss/variables/colors';
+
+.users-wrapper {
+    width: 100%;
+
+    .top-label {
+        background-color: $color-light-gray;
+    }
+}
+

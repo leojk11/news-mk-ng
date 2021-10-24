@@ -1,0 +1,22 @@
+<div class="small-post-wrapper w-100 mb-2 cp">
+    <div class="image w-100" [routerLink]="'/post/' + smallPost._id">
+        <img [src]="apiUrl + '/post-image/' + smallPost.image"  class="w-100" alt="small-post-img">
+    </div>
+
+    <p class="w-100 fw-bold m-0 p-0 mt-2 title" 
+        *ngIf="smallPost" 
+        [routerLink]="'/post/' + smallPost._id">
+        {{ (smallPost.title.length>29)? (smallPost.title | slice:0:30)+'..':(smallPost.title.title) }}
+    </p>
+    <p class="w-100 m-0 p-0 smaller-title mt-1 text-secondary" 
+        *ngIf="smallPost" 
+        [routerLink]="'/post/' + smallPost._id">
+        {{ (smallPost.small_title.length>19)? (smallPost.small_title | slice:0:20)+'..':(smallPost.small_title.title) }}
+    </p>
+
+    <div class="mt-1 d-flex justify-content-start align-items-center gap-1">
+        <p class="added m-0 p-0">{{ smallPost.date_posted }} |</p>
+        <p class="added category m-0 p-0 fw-bold text-secondary" 
+            [routerLink]="'/category/' + smallPost.category_id">{{ smallPost.category }}</p>
+    </div>
+</div>

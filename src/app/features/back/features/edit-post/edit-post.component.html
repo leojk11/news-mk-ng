@@ -1,0 +1,74 @@
+<div class="edit-post p-3">
+  <app-page-label [label]="'Edit post'"></app-page-label>
+
+  <form class="cms-form mt-4" [formGroup]="form" (ngSubmit)="handleSubmit()">
+    <div class="form-group">
+      <label class="fw-bold">Title</label>
+      <input type="text" class="form-control" formControlName="title" name="title">
+      <small *ngIf="isInvalid(form, 'title')">
+        <span *ngIf="form.controls.title.errors?.required" style="color: red">
+          Title name is required.
+        </span>
+      </small>
+    </div>
+    <div class="form-group mt-3">
+      <label class="fw-bold">Small title</label>
+      <input type="text" class="form-control" formControlName="small_title" name="small title">
+      <small *ngIf="isInvalid(form, 'small_title')">
+        <span *ngIf="form.controls.small_title.errors?.required" style="color: red">
+          Small title name is required.
+        </span>
+      </small>
+    </div>
+    <div class="form-group mt-3">
+      <label class="fw-bold">Source</label>
+      <input type="text" class="form-control" formControlName="source" name="source">
+      <small *ngIf="isInvalid(form, 'source')">
+        <span *ngIf="form.controls.source.errors?.required" style="color: red">
+          Title name is required.
+        </span>
+      </small>
+    </div>
+    <div class="form-group mt-3">
+      <label class="fw-bold">Category</label>
+      <select 
+        class="form-select cp" 
+        formControlName="category" 
+        (change)="onChange($event.target.value)"
+      >
+        <option [value]="category.name" 
+          *ngFor="let category of categories">{{ category.name }}</option>
+      </select>
+    </div>
+    <div class="form-group mt-3">
+      <label class="fw-bold">Sub Category</label>
+      <select 
+        class="form-select cp" 
+        formControlName="subCat" 
+      >
+        <option [value]="subCategory.sub_cat" 
+          *ngFor="let subCategory of subCategories">{{ subCategory.sub_cat }}</option>
+      </select>
+    </div>
+    <div class="form-group mt-3">
+      <label class="fw-bold">Text</label>
+      <textarea class="form-control" name="text" cols="30" rows="10" formControlName="text" contenteditable="true" 
+        role="textbox" aria-multiline="true" spellcheck="true" autocorrect="true"></textarea>
+      <small *ngIf="isInvalid(form, 'text')">
+        <span *ngIf="form.controls.text.errors?.required" style="color: red">
+          Text name is required.
+        </span>
+      </small>
+    </div>
+
+    <div class="input-group mt-3">
+      <input #file type="file" class="form-control" aria-label="Upload" 
+        formControlName="image" accept='image/*' (change)="preview(file.files)">
+    </div>
+    <div class="image-preview mt-3" *ngIf="chosenImage">
+      <img [src]="imgURL" height="200" *ngIf="imgURL">
+    </div>
+
+    <button class="btn btn-success mt-5 add-new-btn"> <fa-icon [icon]="addIcon"></fa-icon> Edit Post</button>
+  </form>
+</div>

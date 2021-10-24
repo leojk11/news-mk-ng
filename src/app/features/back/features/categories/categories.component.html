@@ -1,0 +1,14 @@
+<div class="categories p-3">
+  <app-page-label [label]="'Categories'"></app-page-label>
+
+  <div class="categories-wrapper p-3">
+    <div *ngFor="let category of categories" class="w-100">
+      <app-single-category (deleteCategoryClicked)="addClickedCategory($event)" [category]="category"></app-single-category>
+    </div>
+  </div>
+
+  <div @fadeInAnimation class="delete-modal-wrapper" *ngIf="showModal">
+    <div class="bg" (click)="toggleModal()"></div>
+    <app-delete-modal [category]="clickedCategory" (cancelClicked)="toggleModal()"></app-delete-modal>
+  </div>
+</div>

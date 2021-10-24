@@ -1,0 +1,16 @@
+.social-media-item {
+  width: 30px;
+  height: 30px;
+
+  img {
+    width: 30px;
+    height: 30px;
+    filter: invert(100%);
+
+    transition: all .3s;
+  }
+
+  &:hover {
+    filter: invert(20%);
+  }
+}

@@ -1,0 +1,27 @@
+@import 'src/assets/scss/variables/colors';
+
+.delete-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+
+    z-index: 999;
+
+    width: 500px;
+    height: 400px;
+
+    background-color: #ffffff;
+
+    border-radius: 15px;
+
+    fa-icon {
+        font-size: 100px;
+        color: $color-red;
+    }
+
+    h3 {
+        font-weight: normal;
+        color: rgba(black, 0.7);
+    }
+}

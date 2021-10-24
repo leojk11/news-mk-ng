@@ -1,0 +1,41 @@
+@import 'src/assets/scss/variables/colors';
+
+.single-post {
+    height: 150px;
+
+    border: 1px solid whitesmoke;
+    border-radius: 15px;
+    overflow: hidden;
+
+    .image {
+        height: 150px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .buttons {
+        button {
+            width: 100%;
+            height: 50%;
+
+            transition: all 0.3s;
+
+            fa-icon {
+                font-size: 20px;
+            }
+
+            &:hover {
+                background-color: whitesmoke;
+            }
+        }
+    }
+}
+
+.post-title {
+    &:hover {
+        text-decoration: underline;
+    }
+}

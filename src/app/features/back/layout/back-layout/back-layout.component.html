@@ -1,0 +1,35 @@
+<div class="left-menu">
+  <div class="top w-100">
+    <h2 class="m-0 p-2 w-100 text-center">newsMk CMS</h2>
+
+    <div class="identifier p-2 d-flex justify-content-start align-items-center gap-2" 
+        *ngIf="!!user">
+        <div class="image">
+            <img src="assets/icons/new-admin.jpg" alt="admin-image">
+        </div>
+        <div class="name">
+            <p class="m-0 p-0">{{ user.firstname }} {{ user.lastname }}</p>
+            <div class="d-flex justify-content-start align-items-center gap-1">
+                <span class="indicator"></span> 
+                <p class="m-0 p-0">{{ user.status }}</p>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="menu mt-3">
+    <div class="single-item" *ngFor="let menu of menus">
+        <div class="menu-label p-2 w-100 fw-bold" *ngIf="menu.label !== ''">{{ menu.label }}</div>
+
+        <div class="menu-item d-flex justify-content-start align-items-center gap-2 p-2 w-100 cp" 
+            *ngFor="let item of menu.menus" [routerLink]="item.navigateTo" [routerLinkActive]="['active']">
+            <fa-icon [icon]="item.icon"></fa-icon>
+            <p class="m-0 p-0">{{ item.title }}</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="router">
+    <router-outlet></router-outlet>
+</div>

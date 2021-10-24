@@ -1,0 +1,55 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* custom widths scss file */
+@import 'src/assets/scss/custom-widths.scss';
+
+/* ROBOTO FONT */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// regular style toast
+@import '~ngx-toastr/toastr';
+// @import '~ngx-toastr/toastr-bs4-alert';
+
+@import 'src/assets/scss/variables/colors';
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+/* reset tags styles */
+a {
+  color: black;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  &:hover {
+    color: black;
+  }
+}
+button {
+  border: 0;
+  background: transparent;
+}
+.spacer {
+  width: 100%;
+  border-top: 2px solid #f2f2f2;
+}
+
+.post-category {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.cms-form {
+  width: 500px;
+}
+
+.add-new-btn {
+  box-shadow: 0 4px 3px 0 rgba(10, 60, 49, 0.85), 0 0 1px 0 rgba(41,92,176,.25);
+}

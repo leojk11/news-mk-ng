@@ -1,0 +1,6 @@
+<div class="w-100 category-post mb-2 cp" [routerLink]="'/post/' + post._id">
+  <div class="image w-100">
+    <img [src]="apiUrl + '/post-image/' + post.image" class="w-100" alt="category-post">
+  </div>
+  <h5 class="m-0 p-0 w-100 mt-2 title">{{ (post.title.length>79)? (post.title | slice:0:80)+'..':(post.title) }}</h5>
+</div>

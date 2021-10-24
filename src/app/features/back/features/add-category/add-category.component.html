@@ -1,0 +1,12 @@
+<div class="add-category p-3">
+  <app-page-label [label]="'Add new category'"></app-page-label>
+
+  <form class="cms-form mt-4" [formGroup]="form" (ngSubmit)="handleSubmit()">
+    <div class="form-group mt-3">
+      <label class="fw-bold">Category</label>
+      <input type="text" class="form-control" formControlName="title" name="category">
+    </div>
+
+    <button class="btn btn-success mt-5 add-new-btn"> <fa-icon [icon]="addIcon"></fa-icon> Add Category</button>
+  </form>
+</div>

@@ -1,0 +1,45 @@
+<section class="w-100 row m-0 mt-5 mb-5">
+  <div class="col-6 m-0 p-0 cat-big-post cp" [routerLink]="'/post/' + primaryPost._id">
+    <div class="post-shadow"></div>
+    <img [src]="apiUrl + '/post-image/' + primaryPost.image" class="w-100 cat-bit-post-image" alt="big-post-image">
+    <h3 class="m-0 p-3 title">{{ primaryPost.title }}</h3>
+    
+  </div>
+
+  <div class="col-6 p-0 ps-2">
+    <div class="col-12 m-0 p-0 cat-big-post top cp" [routerLink]="'/post/' + randomPost._id">
+      <div class="post-shadow"></div>
+      <img [src]="apiUrl + '/post-image/' + randomPost.image" class="w-100 cat-bit-post-image" alt="big-post-image">
+      <h3 class="m-0 p-3 title">{{ randomPost.title }}</h3>
+    </div>
+
+    <div class="row w-100 m-0 mt-3">
+      <div class="col-6 m-0 p-0 cat-big-post bottom" 
+        *ngFor="let post of lastTwo" [routerLink]="'/post/' + post._id">
+        <div class="post-shadow"></div>
+        <img [src]="apiUrl + '/post-image/' + post.image" class="w-100 cat-bit-post-image" alt="big-post-image">
+        <h3 class="m-0 p-3 title">{{ (post.title.length>39)? (post.title | slice:0:40)+'..':(post.title) }}</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w-100 row mt-5 mb-5">
+  <div class="col-9">
+    <app-label [title]="category.name"></app-label>
+
+    <div class="row mt-2">
+      <div class="col-6" *ngFor="let post of categoryPosts">
+        <app-category-page-post [post]="post"></app-category-page-post>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-3">
+    <app-label [title]="'Најново'"></app-label>
+
+    <div class="w-100 mt-2" *ngFor="let post of recentPosts">
+      <app-category-post [post]="post"></app-category-post>
+    </div>
+  </div>
+</section>

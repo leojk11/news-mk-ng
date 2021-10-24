@@ -1,0 +1,47 @@
+<div class="posts p-3">
+  <app-page-label [label]="'Posts'"></app-page-label>
+
+  <div class="posts-wrapper mt-4 p-3" *ngIf="!showMessage">
+    <form [formGroup]="searchForm" (ngSubmit)="search()">
+      <div class="row">
+        <input type="text" class="col-10" placeholder="Search...">
+        <div class="button col-2">
+          <button class="w-100 btn btn-primary">
+            <fa-icon [icon]="searchIcon"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="post mt-4" 
+        *ngFor="let post of posts | paginate: { 
+            id: 'listing-pagination', 
+            itemsPerPage: 5, 
+            currentPage: page, 
+            totalItems: total 
+          }" 
+      >
+      <app-single-post [post]="post" 
+        (deleteClicked)="toggleModalDelete($event)"></app-single-post>
+    </div>
+
+    <pagination-controls 
+      id="listing-pagination" 
+      maxSize="5" 
+      directionLinks="true"
+      (pageChange)="page = $event"
+    ></pagination-controls>
+  </div>
+
+  <div class="message mt-5" *ngIf="showMessage">
+    <h3>{{ message }}</h3>
+  </div>
+
+  <div @fadeInAnimation class="delete-modal-wrapper" *ngIf="showModal">
+    <div class="bg" (click)="toggleModal()"></div>
+    <app-delete-post-modal [post]="clickedPost" 
+      (cancelClicked)="toggleModal()"></app-delete-post-modal>
+  </div>
+</div>
+
+

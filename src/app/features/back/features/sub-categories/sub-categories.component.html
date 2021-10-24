@@ -1,0 +1,14 @@
+<div class="sub-categories p-3">
+  <app-page-label [label]="'Sub Categories'"></app-page-label>
+
+  <div class="sub-categories-wrapper p-3">
+    <div class="w-100" *ngFor="let subCat of subCategories">
+      <app-sub-category [subCategory]="subCat" (deleteCategoryClicked)="addClickedCategory($event)"></app-sub-category>
+    </div>
+  </div>
+
+  <div @fadeInAnimation class="delete-modal-wrapper" *ngIf="showModal">
+    <div class="bg" (click)="toggleModal()"></div>
+    <app-delete-sub-category-modal [subCategory]="clickedSubCategory" (cancelClicked)="toggleModal()"></app-delete-sub-category-modal>
+  </div>
+</div>
