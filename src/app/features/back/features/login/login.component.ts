@@ -6,6 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { handleServerSideValidation } from 'src/app/shared/utils/server-side-validations';
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -25,10 +26,12 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private auth: AuthService,
     private toast: ToastrService,
-    private router: Router
+    private router: Router,
+    private title: Title
   ) { }
 
   ngOnInit() {
+    this.title.setTitle('newsMK - CMS')
   }
 
   handleSubmit() {

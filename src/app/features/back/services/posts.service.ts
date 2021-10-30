@@ -1,22 +1,27 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { API_URL } from 'src/app/core/tokens/api.token';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
 
-  apiUrl = environment.apiUrl;
-
   constructor(
+    @Inject(API_URL) private apiUrl: string,
     private http: HttpClient
   ) { }
 
   getPosts(pageSize?: number, total?: number): Observable<any> {
     const path = `${ this.apiUrl }/admins/posts?pageSize=${ pageSize }&offset=${ total }`;
     return this.http.get(path);
+  }
+
+  searchPosts(key: string): Observable<any> {
+    const path = `${ this.apiUrl }/admins/posts/search?key=${ key }`;
+    return this.http.get<any>(path);
   }
 
   getSinglePost(id: string): Observable<any> {

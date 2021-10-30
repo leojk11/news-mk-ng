@@ -4,7 +4,7 @@
   <div class="posts-wrapper mt-4 p-3" *ngIf="!showMessage">
     <form [formGroup]="searchForm" (ngSubmit)="search()">
       <div class="row">
-        <input type="text" class="col-10" placeholder="Search...">
+        <input type="text" class="col-10" placeholder="Search..." formControlName="search">
         <div class="button col-2">
           <button class="w-100 btn btn-primary">
             <fa-icon [icon]="searchIcon"></fa-icon>

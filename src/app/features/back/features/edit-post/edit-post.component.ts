@@ -58,9 +58,11 @@ export class EditPostComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.postsService.getSinglePost(params.id).subscribe(res => {
         this.post = res.singlePost[0];
+        console.log(this.post);
 
         this.categoryService.getCategories().subscribe(res => {
           this.categories = res.categories;
+          console.log(this.categories);
         })
         this.subCategoryService.getSubCategoriesFromCategory(res.singlePost[0].category).subscribe(subCategries => {
           this.subCategories = subCategries;
@@ -84,6 +86,7 @@ export class EditPostComponent implements OnInit {
           subCat: subCat,
           text: text
         });
+        console.log(this.form.value);
         this.imgURL = `${ this.apiUrl }/post-image/${ this.post.image }`;
         this.chosenImage = true;
       })
