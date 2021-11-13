@@ -1,0 +1,18 @@
+<div class="add-admin-role p-3">
+    <app-page-label [label]="'Add new admin role'"></app-page-label>
+
+    <form class="cms-form mt-4" [formGroup]="form" (ngSubmit)="handleSubmit()">
+        <div class="form-group">
+            <label class="fw-bold">Admin Role</label>
+            <input type="text" class="form-control" formControlName="admin_role" name="admin_role">
+            <small *ngIf="isInvalid(form, 'admin_role')">
+                <span *ngIf="form.controls.admin_role.errors?.required" style="color: red">
+                    Admin role is required.
+                </span>
+            </small>
+        </div>
+
+        <button class="btn btn-success mt-5 add-new-btn"> 
+            <fa-icon [icon]="addIcon"></fa-icon> Add Admin Role</button>
+    </form>
+</div>

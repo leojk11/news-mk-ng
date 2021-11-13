@@ -4,6 +4,7 @@ import { take } from 'rxjs/operators';
 import { FrontPostsService } from '../services/front-posts.service';
 import { Post } from 'src/app/core/models/Post';
 import { FrontCategoriesService } from '../services/front-categories.service';
+import { CategoryPayload } from 'src/app/core/models/Category';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   recentPosts: Post[] = [];
   mostViewedPosts: Post[] = [];
-  categories: any[] = [];
+  categories: CategoryPayload[] = [];
 
   constructor(
     private postsService: FrontPostsService,
@@ -37,7 +38,6 @@ export class HomeComponent implements OnInit {
     this.categoriesService.getCategoriesWithPosts(3).subscribe(res => {
       this.categories = res;
     });
-
     this.title.setTitle('Насловна')
   }
 }

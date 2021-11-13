@@ -18,7 +18,8 @@
   </div>
 
   <div class="menu mt-3">
-    <div class="single-item" *ngFor="let menu of menus">
+    <app-single-menu-item [menu]="menu" *ngFor="let menu of menus"></app-single-menu-item>
+    <!-- <div class="single-item" *ngFor="let menu of menus">
         <div class="menu-label p-2 w-100 fw-bold" *ngIf="menu.label !== ''">{{ menu.label }}</div>
 
         <div class="menu-item d-flex justify-content-start align-items-center gap-2 p-2 w-100 cp" 
@@ -26,7 +27,7 @@
             <fa-icon [icon]="item.icon"></fa-icon>
             <p class="m-0 p-0">{{ item.title }}</p>
         </div>
-    </div>
+    </div> -->
   </div>
 </div>
 

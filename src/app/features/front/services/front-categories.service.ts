@@ -3,16 +3,9 @@ import { Inject, Injectable } from '@angular/core';
 import { faTextHeight } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { API_URL } from 'src/app/core/tokens/api.token';
+import { Category } from '../../back/services/category.service';
 
-export interface Category {
-  _id: string;
-  name: string;
-  position: number;
-  posts: number;
-  views: number;
-  time_added: string;
-  date_added: string;
-}
+
 
 @Injectable({
   providedIn: 'root'

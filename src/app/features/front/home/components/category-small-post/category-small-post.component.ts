@@ -10,7 +10,7 @@ import { Post } from 'src/app/core/models/Post';
 })
 export class CategorySmallPostComponent implements OnInit {
 
-  @Input() post: Post;
+  @Input() post: Post = {} as Post;
 
   constructor(
     @Inject(API_URL) public apiUrl: string,

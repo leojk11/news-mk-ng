@@ -35,8 +35,6 @@ export class LoginComponent implements OnInit {
   }
 
   handleSubmit() {
-    console.log(this.form.value);
-
     this.submitted = true;
 
     if(this.form.invalid) {
@@ -46,7 +44,6 @@ export class LoginComponent implements OnInit {
 
     this.auth.adminLogin(this.form.value).pipe(take(1))
       .subscribe(res => {
-        console.log(res);
         this.router.navigateByUrl('/back/dashboard').then();
       }, err => {
         this.handleHttpError(err, this.form);

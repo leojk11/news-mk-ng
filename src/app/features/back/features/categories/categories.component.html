@@ -1,8 +1,8 @@
 <div class="categories p-3">
   <app-page-label [label]="'Categories'"></app-page-label>
 
-  <div class="categories-wrapper p-3">
-    <div *ngFor="let category of categories" class="w-100">
+  <div class="categories-wrapper p-3 row">
+    <div *ngFor="let category of categories" class="col-6">
       <app-single-category (deleteCategoryClicked)="addClickedCategory($event)" [category]="category"></app-single-category>
     </div>
   </div>

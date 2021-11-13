@@ -10,7 +10,7 @@ import { API_URL } from 'src/app/core/tokens/api.token';
 })
 export class BigPostComponent implements OnInit {
 
-  @Input() bigPost: Post;
+  @Input() bigPost: Post = {} as Post;
 
   constructor(
     @Inject(API_URL) public apiUrl,

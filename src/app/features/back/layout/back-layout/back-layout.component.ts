@@ -20,6 +20,7 @@ export class BackLayoutComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(this.storageService.getItem('currentUser'));
+    console.log(this.user);
   }
 
 }

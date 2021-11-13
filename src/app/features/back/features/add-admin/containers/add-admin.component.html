@@ -1,0 +1,69 @@
+<div class="add-admin w-100 p-3">
+    <app-page-label [label]="'Add admin'"></app-page-label>
+
+    <form class="cms-form mt-4" [formGroup]="form" (ngSubmit)="handleSubmit()">
+        <div class="form-group">
+            <label class="fw-bold">Firstname</label>
+            <input type="text" class="form-control" formControlName="firstname" name="firstname">
+            <small *ngIf="isInvalid(form, 'firstname')">
+              <span *ngIf="form.controls.firstname.errors?.required" style="color: red">
+                Firstname is required.
+              </span>
+            </small>
+        </div>
+        <div class="form-group mt-3">
+            <label class="fw-bold">Lastname</label>
+            <input type="text" class="form-control" formControlName="lastname" name="lastname">
+            <small *ngIf="isInvalid(form, 'lastname')">
+              <span *ngIf="form.controls.lastname.errors?.required" style="color: red">
+                Lastname is required.
+              </span>
+            </small>
+        </div>
+        <div class="form-group mt-3">
+            <label class="fw-bold">Email</label>
+            <input type="text" class="form-control" formControlName="email" name="email">
+            <small *ngIf="isInvalid(form, 'email')">
+              <span *ngIf="form.controls.email.errors?.required" style="color: red">
+                Email is required.
+              </span>
+              <span *ngIf="form.controls.email.errors?.email" style="color: red">
+                Email is not valid.
+              </span>
+            </small>
+        </div>
+        <div class="form-group mt-3">
+            <label class="fw-bold">Username</label>
+            <input type="text" class="form-control" formControlName="username" name="username">
+            <small *ngIf="isInvalid(form, 'username')">
+              <span *ngIf="form.controls.username.errors?.required" style="color: red">
+                Username is required.
+              </span>
+            </small>
+        </div>
+        <div class="form-group mt-3">
+            <label class="fw-bold">Password</label>
+            <input type="password" class="form-control" formControlName="password" name="password">
+            <small *ngIf="isInvalid(form, 'password')">
+              <span *ngIf="form.controls.password.errors?.required" style="color: red">
+                Password is required.
+              </span>
+            </small>
+        </div>
+        <div class="form-group mt-3">
+          <div class="form-group mb-3">
+            <label class="fw-bold">Admin role</label>
+            <select 
+              class="form-select" 
+              formControlName="admin_role" 
+            >
+              <option [value]="role.admin_role" 
+                *ngFor="let role of adminRoles">{{ role.admin_role }}</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-success mt-5 add-new-btn"> 
+            <fa-icon [icon]="addIcon"></fa-icon> Add Admin</button>
+    </form>
+</div>

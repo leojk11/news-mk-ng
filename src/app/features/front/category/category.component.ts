@@ -4,6 +4,8 @@ import { Post } from 'src/app/core/models/Post';
 import { FrontCategoriesService } from '../services/front-categories.service';
 import { FrontPostsService } from '../services/front-posts.service';
 import { API_URL } from 'src/app/core/tokens/api.token';
+import { Title } from '@angular/platform-browser';
+import { Category } from 'src/app/core/models/Category';
 
 @Component({
   selector: 'app-category',
@@ -12,8 +14,8 @@ import { API_URL } from 'src/app/core/tokens/api.token';
 })
 export class CategoryComponent implements OnInit {
 
-  category: any = {} as any;
-  primaryPost: any = {} as any;
+  category: Category = {} as Category;
+  primaryPost: Post = {} as Post;
   categoryPosts: Post[] = [];
   recentPosts: Post[] = [];
   randomPost: Post = {} as Post;
@@ -24,7 +26,8 @@ export class CategoryComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private categoriesService: FrontCategoriesService,
-    private postsService: FrontPostsService
+    private postsService: FrontPostsService,
+    private title: Title
   ) { }
 
   ngOnInit() {
@@ -35,6 +38,7 @@ export class CategoryComponent implements OnInit {
             this.router.navigateByUrl('/home');
           } else {
             this.category = res.category;
+            this.title.setTitle('Категорија:' + ' ' + this.category.name)
             this.primaryPost = res.primaryPost;
             this.categoryPosts = res.posts;
   

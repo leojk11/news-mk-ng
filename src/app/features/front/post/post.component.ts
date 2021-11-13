@@ -17,6 +17,7 @@ export class PostComponent implements OnInit {
   recentPosts: Post[] = [];
   post: Post = {} as Post;
   categoryPosts: Post[] = [];
+  maybeInterested: Post[] = [];
 
   calendarIcon = faCalendarAlt;
   clockIcon = faClock;
@@ -51,7 +52,7 @@ export class PostComponent implements OnInit {
       }
     })
 
-    this.postsService.getLastPosts(4).subscribe(lastPosts => {
+    this.postsService.getLastPosts(5).subscribe(lastPosts => {
       this.recentPosts = lastPosts;
     })
   }

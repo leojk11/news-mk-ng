@@ -1,8 +1,8 @@
 <div class="sub-categories p-3">
   <app-page-label [label]="'Sub Categories'"></app-page-label>
 
-  <div class="sub-categories-wrapper p-3">
-    <div class="w-100" *ngFor="let subCat of subCategories">
+  <div class="sub-categories-wrapper p-3 row">
+    <div class="col-12 col-md-12 col-lg-6 col-xl-6" *ngFor="let subCat of subCategories">
       <app-sub-category [subCategory]="subCat" (deleteCategoryClicked)="addClickedCategory($event)"></app-sub-category>
     </div>
   </div>

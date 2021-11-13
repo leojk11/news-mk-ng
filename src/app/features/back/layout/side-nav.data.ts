@@ -4,13 +4,15 @@ import {
     faUserPlus,
     faClipboard,
     faPlusCircle,
-    faThLarge
+    faThLarge,
+    faUserTag
 } from "@fortawesome/free-solid-svg-icons"
 
 
 export const SIDE_BAR_ITEMS = [
     {
         label: '',
+        admin_role: 'all',
         menus: [
             {
                 title: 'Home',
@@ -21,6 +23,7 @@ export const SIDE_BAR_ITEMS = [
     },
     {
         label: 'Users',
+        admin_role: 'all',
         menus: [
             {
                 title: 'Manage users',
@@ -36,6 +39,7 @@ export const SIDE_BAR_ITEMS = [
     },
     {
         label: 'Posts',
+        admin_role: 'all',
         menus: [
             {
                 title: 'Manage posts',
@@ -51,6 +55,7 @@ export const SIDE_BAR_ITEMS = [
     },
     {
         label: 'Categories',
+        admin_role: 'all',
         menus: [
             {
                 title: 'Manage categories',
@@ -74,4 +79,30 @@ export const SIDE_BAR_ITEMS = [
             }
         ]
     },
+    {
+        label: 'Admin',
+        admin_role: 'HEAD ADMIN',
+        menus: [
+            {
+                title: 'Manage admins',
+                icon: faUsers,
+                navigateTo: 'admins' 
+            },
+            {
+                title: 'Add new admin',
+                icon: faPlusCircle,
+                navigateTo: 'add-admin' 
+            },
+            {
+                title: 'Manage admin roles',
+                icon: faUserTag,
+                navigateTo: 'admin-roles' 
+            },
+            {
+                title: 'Add new admin role',
+                icon: faUserTag,
+                navigateTo: 'add-admin-role' 
+            }
+        ]
+    }
 ]

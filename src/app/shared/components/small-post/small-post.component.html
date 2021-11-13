@@ -6,7 +6,7 @@
     <p class="w-100 fw-bold m-0 p-0 mt-2 title" 
         *ngIf="smallPost" 
         [routerLink]="'/post/' + smallPost._id">
-        {{ (smallPost.title.length>29)? (smallPost.title | slice:0:30)+'..':(smallPost.title.title) }}
+        {{ (smallPost.title.length>49)? (smallPost.title | slice:0:50)+'..':(smallPost.title) }}
     </p>
     <p class="w-100 m-0 p-0 smaller-title mt-1 text-secondary" 
         *ngIf="smallPost" 

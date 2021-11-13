@@ -62,6 +62,22 @@ const routes: Routes = [
             {
                 path: 'add-sub-category',
                 loadChildren: () => import('./features/add-sub-category/add-sub-category.module').then(m => m.AddSubCategoryModule)
+            },
+            {
+                path: 'admins',
+                loadChildren: () => import('./features/admin/admin.module').then(m => m.AdminModule)
+            },
+            {
+                path: 'add-admin',
+                loadChildren: () => import('./features/add-admin/add-admin.module').then(m => m.AddAdminModule)
+            },
+            {
+                path: 'admin-roles',
+                loadChildren: () => import('./features/admin-roles/admin-roles.module').then(m => m.AdminRolesModule)
+            },
+            {
+                path: 'add-admin-role',
+                loadChildren: () => import('./features/add-admin-roles/add-admin-roles.module').then(m => m.AddAdminRolesModule)
             }
         ]
     }
