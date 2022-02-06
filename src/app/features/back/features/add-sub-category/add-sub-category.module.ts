@@ -5,6 +5,8 @@ import { PageLabelModule } from '../../layout/components/page-label/page-label.m
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import {MatSelectModule} from '@angular/material/select';
+
 import { AddSubCategoryComponent } from './add-sub-category.component';
 
 const routes: Routes = [
@@ -21,7 +23,8 @@ const routes: Routes = [
     PageLabelModule,
     ReactiveFormsModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatSelectModule
   ],
   declarations: [AddSubCategoryComponent]
 })

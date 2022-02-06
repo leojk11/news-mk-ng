@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageLabelModule } from '../../layout/components/page-label/page-label.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { SubCategoriesComponent } from './sub-categories.component';
 import { SubCategoryComponent } from './components/sub-category/sub-category.component';
 import { DeleteSubCategoryModalComponent } from './components/delete-sub-category-modal/delete-sub-category-modal.component';
@@ -20,8 +22,13 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     PageLabelModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatProgressSpinnerModule
   ],
-  declarations: [SubCategoriesComponent, SubCategoryComponent, DeleteSubCategoryModalComponent]
+  declarations: [
+    SubCategoriesComponent, 
+    SubCategoryComponent, 
+    DeleteSubCategoryModalComponent
+  ]
 })
 export class SubCategoriesModule { }

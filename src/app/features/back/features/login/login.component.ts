@@ -35,9 +35,11 @@ export class LoginComponent implements OnInit {
   }
 
   handleSubmit() {
+    console.log('HANDLE SUBMIT FIRED')
     this.submitted = true;
 
     if(this.form.invalid) {
+      console.log('FORM NOT VALID');
       this.form.markAllAsTouched();
       return;
     }

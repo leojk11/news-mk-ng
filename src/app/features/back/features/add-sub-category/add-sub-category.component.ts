@@ -21,6 +21,7 @@ export class AddSubCategoryComponent implements OnInit {
   })
 
   addIcon = faPlusCircle;
+  category: any;
   chosenCategory = false;
   submitted = false;
 
@@ -49,19 +50,25 @@ export class AddSubCategoryComponent implements OnInit {
   handleSubmit(): void {
     this.submitted = true;
 
+    this.form.patchValue({
+      cateogry: this.category
+    })
+
     if(this.form.invalid) {
       this.form.markAllAsTouched();
       this.toast.error('Form is not valid, please check it again');
 
       return;
-    } else {
-      this.subCategoryService.addSubCategory(this.form.value).subscribe(res => {
-        this.toast.success('Sub category has been added');
-        this.router.navigateByUrl('/back/sub-categories');
-      }, err => { 
-        this.toast.error(err.error.message);
-      })
-    }
+    } 
+    console.log(this.form.value);
+    // else {
+    //   this.subCategoryService.addSubCategory(this.form.value).subscribe(res => {
+    //     this.toast.success('Sub category has been added');
+    //     this.router.navigateByUrl('/back/sub-categories');
+    //   }, err => { 
+    //     this.toast.error(err.error.message);
+    //   })
+    // }
   }
 
   isInvalid(form: FormGroup, control: string): boolean {

@@ -14,13 +14,10 @@ export class BackLayoutComponent implements OnInit {
 
   user: User = {} as User;
 
-  constructor(
-    private storageService: StorageService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    this.user = JSON.parse(this.storageService.getItem('currentUser'));
+    this.user = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.user);
   }
-
 }
