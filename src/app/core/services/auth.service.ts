@@ -41,14 +41,16 @@ export class AuthService {
     return this.http.post<any>(path, payload).pipe(
       tap(res => {
         this.setAuthData(res.userData);
-        this.storageService.setItem(currentAuthUser, JSON.stringify(res.userData));
+        localStorage.setItem(currentAuthUser, JSON.stringify(res.userData));
+        // this.storageService.setItem(currentAuthUser, JSON.stringify(res.userData));
       })
     )
   }
 
   logout(): void {
     this.setAuthData(null);
-    this.storageService.removeItem(currentAuthUser);
+    localStorage.removeItem(currentAuthUser);
+    // this.storageService.removeItem(currentAuthUser);
     this.router.navigateByUrl('/back/login').then();
   }
 
@@ -61,7 +63,7 @@ export class AuthService {
   }
 
   private get localStorageAuthState(): AuthState | undefined {
-    const local = this.storageService.getItem(currentAuthUser);
+    const local = localStorage.getItem(currentAuthUser);
     if (local) {
       return JSON.parse(local) as any;
     }
